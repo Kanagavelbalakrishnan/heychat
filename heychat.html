@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="chatApp">
+<head>
+    <meta charset="UTF-8">
+      <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+       <script type="text/javascript" src="jemoji/jemoji.js"></script>
+    <link rel="stylesheet" src="jemoji/jemoji.css"/>
+<script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "#apikey",
+    authDomain: "###",
+    databaseURL: "##firebase url",
+    projectId: " project id ",
+    storageBucket: "",
+    messagingSenderId:""
+  };
+  firebase.initializeApp(config);
+  
+ 
+
+    
+
+
+
+
+
+
+ </script>
+    
+    <script src="index.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body ng-controller="ChatController">
+    <br>
+   
+
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Web Based Firebase Chat Application</div>
+           
+            
+
+            <div class="panel-body">
+              <script>
+                var queryString = decodeURIComponent(window.location.search);
+                  queryString = queryString.substring(1);
+                  var queries = queryString.split("&");
+                if(m.sender!=queries){
+                  document.getElementById("shift").style.text-align="right";
+                }
+              </script>
+                <p ng-repeat="m in x" id="shift" style="text-align: right;" >{{m.sender}}<br></br>{{m.message}} - {{m.date | date:'medium'}}</p>
+                <div class="form-group">
+                    <input type="text" id="example" class="form-control" placeholder="Message here..." ng-model="messageText"><i class="fa fa-smile-o"></i>
+                </div>
+                <button type="submit" class="btn btn-default" ng-click="send()">Send</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
